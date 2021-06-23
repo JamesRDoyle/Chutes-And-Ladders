@@ -38,14 +38,22 @@ def Play_a_game(num_players):
             player_list[p] = CandL_make_a_move(player_list[p], CandLTable) # Make a move
             if (player_list[p] == 100): 
                 player_has_won = True
-                print("Player " + str(p+1) + " has won!!!")
-                break # End the function now that a player has won
+                #print("Player " + str(p+1) + " has won!!!")
+                return p+1
+                #break # End the function now that a player has won
             #print("Player " + str(p+1) + " is at position " + str(player_list[p]))
 
+def Play_games(num_players, num_games):
+    for x in range(1, 1+num_games):
+        winner = Play_a_game(num_players)
+        print("Player " + str(winner) + " has won game " + str(x) + "!!")
 
+        
 num_players = int(input("How many players are playing? "))
-#num_games = int(input("How many games will be played? "))
-Play_a_game(num_players)
+num_games = int(input("How many games will be played? "))
+
+#Play_a_game(num_players)
+Play_games(num_players, num_games)
 
 
 
