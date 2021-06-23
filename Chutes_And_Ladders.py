@@ -28,31 +28,30 @@ def CandL_make_a_move(position,CandLTable):
 
 
 # My code:
+
+# Method definition to play a single game between n number of players
 def Play_a_game(num_players):
     player_has_won = False
     player_list = [0] * num_players  # each player starts at position 0
 
-    while (player_has_won != True):
-        #for player in player_list:
+    while (player_has_won != True): # Play rounds for each player until a winner is found
         for p in range(num_players):
             player_list[p] = CandL_make_a_move(player_list[p], CandLTable) # Make a move
+            
             if (player_list[p] == 100): 
                 player_has_won = True
-                #print("Player " + str(p+1) + " has won!!!")
-                return p+1
-                #break # End the function now that a player has won
-            #print("Player " + str(p+1) + " is at position " + str(player_list[p]))
+                return p+1 # End the function now that a player has won
 
+# Method definition to play x number of games with y number of players
 def Play_games(num_players, num_games):
-    for x in range(1, 1+num_games):
+    for x in range(1, 1+num_games): # Play a game and declare a winner each time
         winner = Play_a_game(num_players)
         print("Player " + str(winner) + " has won game " + str(x) + "!!")
 
-        
+# Variables collect user input to dictate how many games should be played with how many numbers
 num_players = int(input("How many players are playing? "))
 num_games = int(input("How many games will be played? "))
 
-#Play_a_game(num_players)
 Play_games(num_players, num_games)
 
 
